@@ -18,11 +18,11 @@ gitHubProfile();
 const displayUser = function (data) {
   overview.innerHTML = ""; // empty the data field
 
-    const div = document.createElement("div");
-    div.classList.add("user-info");
+  const div = document.createElement("div");
+  div.classList.add("user-info");
 
-      // Display in DOM
-    div.innerHTML = `
+    // Display on page
+  div.innerHTML = `
     <figure>
       <img src=${data.avatar_url} alt="user avatar" />
     </figure>
@@ -32,6 +32,6 @@ const displayUser = function (data) {
       <p><strong>Location: ${data.location}</strong></p>
       <p><strong>Number of public repos: ${data.public_repos}</strong></p>
     </div>
-    `;
+  `;
   overview.append(div);
   };
