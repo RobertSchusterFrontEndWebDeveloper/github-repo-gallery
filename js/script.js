@@ -2,6 +2,8 @@
 const overview = document.querySelector(".overview"); 
 const username = "rob17204";
 const repoList = document.querySelector(".repo-list");
+const reposSection = document.querySelector(".repos");
+const repoData = document.querySelector(".repo-data");
 
 const gitHubProfile = async function (){
   const profileRequest = await fetch (`https://api.github.com/users/${username}`);
@@ -55,3 +57,20 @@ const displayUser = function (data) {
       repoList.append(repoItem);
     }
   };
+
+    // User select repo
+  repoList.addEventListener("click", function(e) {
+    e.preventDefault();
+    if (e.target.matches("h3")) {
+      let repoName = e.target.innerText;
+      getInfo(repoName);
+    }
+  });
+
+    // Get specific repo info
+  const getInfo = async function(repoName) {
+    const grabRepo = await fetch (`https://api.github.com/repos/${username}/${repoName}`);
+    const repoInfo = await grabRepo.json();
+    console.log(repoInfo);
+    return(repoList);
+  }
