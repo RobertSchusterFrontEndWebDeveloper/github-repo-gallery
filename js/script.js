@@ -44,11 +44,11 @@ const displayUser = function (data) {
   const fetchRepos = async function () {
     const repoRequest = await fetch (`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
     const repoData = await repoRequest.json();
-    console.log(repoData);
+    //console.log(repoData);
     displayRepos(repoData);
   };
 
-    // Display
+    // Display repos of github
   const displayRepos = function (repos) {
     for (const repo of repos) {
       const repoItem = document.createElement("li");
@@ -71,6 +71,32 @@ const displayUser = function (data) {
   const getInfo = async function(repoName) {
     const grabRepo = await fetch (`https://api.github.com/repos/${username}/${repoName}`);
     const repoInfo = await grabRepo.json();
-    console.log(repoInfo);
+    //console.log(repoInfo);
+    const fetchLanguages = await fetch (`https://api.github.com/repos/${username}/${repoName}/languages`);
+    const languageData = await fetchLanguages.json();
+    //console.log(languageData);
+    //console.log(languages);
+
+      // loop through the object languageData
+    const languages = [languageData];
+    for (let code of languages) {
+      for (let key in languageData) {
+        console.log(key, languageData[key]);
+      };
+    }
+   
+      // Display repo info
+    const displayRepoInfo = function (repoInfo, languages) {
+      repoData = "";
+      const div = document.createElement("div");
+      div.innerHTML = `
+      <h3>Name: ${repoName}</h3>
+        <p>Description: ${}</p>
+        <p>Default Branch: ${}</p>
+        <p>Languages: ${languages.join(", ")}</p>
+        <a class="visit" herf="${} target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`
+    }
+
+    
     return(repoList);
   }
