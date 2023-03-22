@@ -72,31 +72,36 @@ const displayUser = function (data) {
     const grabRepo = await fetch (`https://api.github.com/repos/${username}/${repoName}`);
     const repoInfo = await grabRepo.json();
     //console.log(repoInfo);
-    const fetchLanguages = await fetch (`https://api.github.com/repos/${username}/${repoName}/languages`);
+    const fetchLanguages = await fetch (repoInfo.languages_url);
     const languageData = await fetchLanguages.json();
     //console.log(languageData);
     //console.log(languages);
 
       // loop through the object languageData
-    const languages = [languageData];
-    for (let code of languages) {
-      for (let key in languageData) {
-        console.log(key, languageData[key]);
-      };
+    const languages = [];
+    for (const language in languageData) {
+      languages.push(language);
     }
+      displayRepoInfo(repoInfo, languages);
+  };  
    
-      // Display repo info
-    const displayRepoInfo = function (repoInfo, languages) {
-      repoData = "";
-      const div = document.createElement("div");
-      div.innerHTML = `
-      <h3>Name: ${repoName}</h3>
-        <p>Description: ${}</p>
-        <p>Default Branch: ${}</p>
+    // Display repo info
+  const displayRepoInfo = function (repoInfo, languages) {
+    repoData.HTML = "";
+    repoData.classList.remove("hide");
+    reposSection.classList.add("hide");
+    const div = document.createElement("div");
+    div.innerHTML = ` 
+      <h3>Name: ${repoInfo.name}</h3>
+        <p>Description: ${repoInfo.description}</p>
+        <p>Default Branch: ${repoInfo.default_branch}</p>
         <p>Languages: ${languages.join(", ")}</p>
-        <a class="visit" herf="${} target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`
-    }
+        <a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>
+      `;
+      repoData.append(div);
+    };
+    console.log("We made it here!");
 
     
-    return(repoList);
-  }
+  
+        //<p>Languages: ${repoInfo.languages.join("key, code")}</p>
