@@ -4,6 +4,8 @@ const username = "rob17204";
 const repoList = document.querySelector(".repo-list");
 const reposSection = document.querySelector(".repos");
 const repoData = document.querySelector(".repo-data");
+const backToRepo = document.querySelector(".view-repos");
+const filterInput = document.querySelector(".filter-repos");
 
 const gitHubProfile = async function (){
   const profileRequest = await fetch (`https://api.github.com/users/${username}`);
@@ -48,9 +50,10 @@ const displayUser = function (data) {
     displayRepos(repoData);
   };
 
-    // Display repos of github
+    // Display all of my public repos on github
   const displayRepos = function (repos) {
-    for (const repo of repos) {
+    filterInput.classList.remove("hide");
+    for (let repo of repos) {
       const repoItem = document.createElement("li");
       repoItem.classList.add("repo");
       repoItem.innerHTML = `<h3>${repo.name}</h3>`;
@@ -85,11 +88,12 @@ const displayUser = function (data) {
       displayRepoInfo(repoInfo, languages);
   };  
    
-    // Display repo info
+    // Display individual repo info
   const displayRepoInfo = function (repoInfo, languages) {
     repoData.HTML = "";
     repoData.classList.remove("hide");
     reposSection.classList.add("hide");
+    backToRepo.classList.remove("hide");
     const div = document.createElement("div");
     div.innerHTML = ` 
       <h3>Name: ${repoInfo.name}</h3>
@@ -100,8 +104,14 @@ const displayUser = function (data) {
       `;
       repoData.append(div);
     };
-    console.log("We made it here!");
+   
+    backToRepo.addEventListener("click", function(e) {
+      reposSection.classList.remove("hide");
+      repoData.classList.add("hide");
+      backToRepo.classList.add("hide");
+      repoList.classList.remove("hide");
+      repoData.innerHTML="";
+      displayRepos();
+    });
 
     
-  
-        //<p>Languages: ${repoInfo.languages.join("key, code")}</p>
