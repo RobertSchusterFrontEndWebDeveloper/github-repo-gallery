@@ -5,7 +5,7 @@ const repoList = document.querySelector(".repo-list");
 const reposSection = document.querySelector(".repos");
 const repoData = document.querySelector(".repo-data");
 const backToRepo = document.querySelector(".view-repos");
-const filterInput = document.querySelector(".filter-repos");
+const filterInput = document.querySelector("input.filter-repos");
 
 const gitHubProfile = async function (){
   const profileRequest = await fetch (`https://api.github.com/users/${username}`);
@@ -114,4 +114,20 @@ const displayUser = function (data) {
       displayRepos();
     });
 
+      // Input repo data name or other 
+    filterInput.addEventListener("input", function(e) {
+      const searchText = e.target.value;
+      const pageRepos = document.querySelectorAll(".repo");
+      const searchTextLower = searchText.toLowerCase();
+      
+      for (const repo of pageRepos) {
+        const repoLowerText = repo.innerText.toLowerCase();
+        if (repoLowerText.includes(searchTextLower)) {
+          repo.classList.remove("hide");
+        } else {
+          repo.classList.add("hide");
+          console.log("function ran");
+        };
+      }
+    });
     
