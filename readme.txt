@@ -1,4 +1,4 @@
 GitHub Repo Gallery Project
-Pull data from my GitHub Repos to create a gallery
+Pull data from my GitHub Repos to create a gallery using JavaScript from the GitHub API
 Give users dynamic search functionality
-Utilize GitHub API to populate data from my account
+Some of the JS used: input Event, filterinput, matches() method.
