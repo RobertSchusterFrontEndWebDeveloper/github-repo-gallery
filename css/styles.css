@@ -8,8 +8,10 @@ body {
     justify-content: center;
     margin: 0;
     font-family: "Open Sans", sans-serif;
-    background-color: #2f4f4f;
+    background-color: #3e3d53;
+    height: 100%;
     background-size: cover;
+    max-width: 2500px;
     color: #333;
     font-size: 16px;
 }
@@ -97,8 +99,6 @@ ul {
     align-items: center;
     width: 90%;
     max-width: 1200px;
-    background-image: url('/img/coding.png') no-repeat center center fixed;
-    height: 100%;
 }
 
 .intro,
@@ -178,6 +178,7 @@ section.repo-data {
     margin: 1em 0;
     border: 1px solid #36454F;
     padding: 0.5em;
+    background-color: #fff;
 }
 
 .repo-list h3 {

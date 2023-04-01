@@ -21,7 +21,8 @@ gitHubProfile();
 
   // Display user info
 const displayUser = function (data) {
-  overview.innerHTML = ""; // empty the data field
+    // empty the data field
+  overview.innerHTML = ""; 
 
   const div = document.createElement("div");
   div.classList.add("user-info");
@@ -126,7 +127,6 @@ const displayUser = function (data) {
           repo.classList.remove("hide");
         } else {
           repo.classList.add("hide");
-          console.log("function ran");
         };
       }
     });
