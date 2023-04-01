@@ -8,7 +8,8 @@ body {
     justify-content: center;
     margin: 0;
     font-family: "Open Sans", sans-serif;
-    background-color: #fbf9de;
+    background-color: #2f4f4f;
+    background-size: cover;
     color: #333;
     font-size: 16px;
 }
@@ -27,7 +28,7 @@ body {
 }
 
 .fa-github-alt {
-    color: #f86d58;
+    color: #b2beb5;
 }
 
 img {
@@ -42,7 +43,7 @@ h1 {
     font-size: 3.5em;
     text-align: center;
     font-family: "Oswald", sans-serif;
-    background-color: #483978;
+    background-color: #000;
     color: #fff;
     text-transform: uppercase;
     border-top-left-radius: 20px;
@@ -64,7 +65,7 @@ h1 {
 .circle {
     width: 20px;
     height: 20px;
-    background-color: #483978;
+    background-color: #000;
     border-radius: 100%;
     z-index: 99;
     align-self: center;
@@ -80,7 +81,7 @@ h1 {
 h3 {
     width: 100%;
     text-align: center;
-    color: #f86d58;
+    color: #000;
 }
 
 ul {
@@ -96,6 +97,8 @@ ul {
     align-items: center;
     width: 90%;
     max-width: 1200px;
+    background-image: url('/img/coding.png') no-repeat center center fixed;
+    height: 100%;
 }
 
 .intro,
@@ -107,7 +110,7 @@ ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: #483978;
+    background-color: #000;
     color: white;
     font-size: 18px;
     padding-bottom: 2em;
@@ -173,7 +176,7 @@ section.repo-data {
 .repo-list li {
     width: 90%;
     margin: 1em 0;
-    border: 1px solid #f86d58;
+    border: 1px solid #36454F;
     padding: 0.5em;
 }
 
