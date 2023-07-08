@@ -1,4 +1,3 @@
-  // Select the div with - the profile info section
 const overview = document.querySelector(".overview"); 
 const username = "rob17204";
 const repoList = document.querySelector(".repo-list");
