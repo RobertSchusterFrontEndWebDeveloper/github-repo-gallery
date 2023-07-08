@@ -11,7 +11,6 @@ const gitHubProfile = async function (){
   
     // collect the profile api results
   const data = await profileRequest.json(); 
-    //console.log(data);
 
   displayUser(data);
 };
@@ -46,7 +45,6 @@ const displayUser = function (data) {
   const fetchRepos = async function () {
     const repoRequest = await fetch (`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
     const repoData = await repoRequest.json();
-    //console.log(repoData);
     displayRepos(repoData);
   };
 
@@ -77,8 +75,6 @@ const displayUser = function (data) {
     //console.log(repoInfo);
     const fetchLanguages = await fetch (repoInfo.languages_url);
     const languageData = await fetchLanguages.json();
-    //console.log(languageData);
-    //console.log(languages);
 
       // loop through the object languageData
     const languages = [];
