@@ -9,7 +9,6 @@ const filterInput = document.querySelector("input.filter-repos");
 const gitHubProfile = async function (){
   const profileRequest = await fetch (`https://api.github.com/users/${username}`);
   
-    // collect the profile api results
   const data = await profileRequest.json(); 
 
   displayUser(data);
@@ -72,7 +71,6 @@ const displayUser = function (data) {
   const getInfo = async function(repoName) {
     const grabRepo = await fetch (`https://api.github.com/repos/${username}/${repoName}`);
     const repoInfo = await grabRepo.json();
-    //console.log(repoInfo);
     const fetchLanguages = await fetch (repoInfo.languages_url);
     const languageData = await fetchLanguages.json();
 
