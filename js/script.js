@@ -1,5 +1,5 @@
 const overview = document.querySelector(".overview"); 
-const username = "robertschusterfrontendwebdeveloper";
+const username = "RobertSchusterFrontEndWebDeveloper";
 const repoList = document.querySelector(".repo-list");
 const reposSection = document.querySelector(".repos");
 const repoData = document.querySelector(".repo-data");
